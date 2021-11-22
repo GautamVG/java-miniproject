@@ -8,7 +8,6 @@ import java.awt.*;
 class Header extends JPanel {
     JPanel container = new JPanel();
     JLabel title = new JLabel("Hello User!");
-    JLabel subtitle = new JLabel("You have no more tasks. Add some");
     JButton addBtn = new JButton("Add");
     
     public Header() {
@@ -20,15 +19,10 @@ class Header extends JPanel {
         title.setAlignmentX(0);
         title.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
 
-        subtitle.setFont(new Font("SansSerif", Font.BOLD, 16));
-        subtitle.setAlignmentX(0);
-        subtitle.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
-
         addBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
         addBtn.setAlignmentX(0);
 
         add(title);
-        add(subtitle);
         add(addBtn);
     }
 
