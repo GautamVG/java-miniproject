@@ -18,7 +18,6 @@ class App extends JFrame implements ActionListener {
         setTitle("TwoDo");
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // setSize(700, 600);
         setResizable(false);
 
         contentPane.setLayout(new BorderLayout());
@@ -55,7 +54,11 @@ class App extends JFrame implements ActionListener {
                 break;
 
             case "Delete":
-                delBtnClicked(e);    
+                delBtnClicked(e);
+                break;
+
+            case "Refresh":
+                taskManager.syncUI();
                 break;
 
             default:
@@ -63,13 +66,18 @@ class App extends JFrame implements ActionListener {
         }
     }
 
+    public void refreshBtnClicked() {
+
+    }
+
     public void saveBtnClicked(ActionEvent e) {
-        TaskData data = dashboard.getEditorData();
-        if (dashboard.isEditorDataValid()) {
-            taskManager.updateTasks(data);
+        if (dashboard.validateEditor()) {
+            TaskData data = dashboard.getEditorData();
+            taskManager.update(data);
             dashboard.closeEditor();
         } else {
             System.out.println("Invalid Data Entered");
+            JOptionPane.showMessageDialog(this, "There is a problem with your form");
         }
     }
 

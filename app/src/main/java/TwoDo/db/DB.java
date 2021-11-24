@@ -31,7 +31,6 @@ public class DB {
                 record.title = result.getString("Task");
                 record.desc = result.getString("Details");
                 record.setDate(result.getTimestamp("DueDate"));
-                record.user = result.getInt("User");
                 records.add(record);
             }
 

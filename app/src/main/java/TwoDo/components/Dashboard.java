@@ -10,39 +10,37 @@ import java.awt.*;
 import TwoDo.db.TaskData;
 
 public class Dashboard extends JPanel {
-    JLabel title = new JLabel("Hello User!");
+    JLabel title = new JLabel("Stuff To Do");
+    JPanel buttonPane = new JPanel();
     JButton addBtn = new JButton("Add");
+    JButton refreshBtn = new JButton("Refresh");
     Border padding = BorderFactory.createEmptyBorder(10, 20, 10, 20);
     Border margin = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
     Border bottomSpacing = BorderFactory.createEmptyBorder(0, 0, 10, 0);
     Border topSpacing = BorderFactory.createEmptyBorder(20, 0, 0, 0);
 
-    JLabel noTasksLabel = new JLabel("No more tasks! Yay!!");
     TaskEditor taskEditor = new TaskEditor();
 
     public Dashboard() {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        setPreferredSize(new Dimension(200, 600));
+        setPreferredSize(new Dimension(250, 600));
         setBorder(BorderFactory.createCompoundBorder(margin, padding));
 
             title.setAlignmentX(0);
             title.setBorder(bottomSpacing);
             title.setFont(new Font("SansSerif", Font.BOLD, 24));
 
-            noTasksLabel.setAlignmentX(0);
-            noTasksLabel.setFont(new Font("SansSerif", Font.ITALIC, 12));
-            noTasksLabel.setBorder(bottomSpacing);
-            noTasksLabel.setVisible(false);
+            buttonPane.setAlignmentX(0);
+            buttonPane.setLayout(new FlowLayout(FlowLayout.LEADING));
+                addBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
+                refreshBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
+            buttonPane.add(addBtn);
+            buttonPane.add(refreshBtn);
 
-            addBtn.setAlignmentX(0);
-            addBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
-
-            taskEditor.setBorder(topSpacing);
             closeEditor();
 
         add(title);
-        add(noTasksLabel);
-        add(addBtn);
+        add(buttonPane);
         add(taskEditor);
     }
 
@@ -69,7 +67,7 @@ public class Dashboard extends JPanel {
         taskEditor.setVisible(false);
     }
 
-    public boolean isEditorDataValid() {
-        return taskEditor.isDataValid();
+    public boolean validateEditor() {
+        return taskEditor.validateData();
     }
 }

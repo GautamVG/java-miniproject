@@ -83,7 +83,7 @@ public class TaskManager extends JScrollPane {
         return result;
     }
 
-    public void updateTasks(TaskData data) {
+    public void update(TaskData data) {
         // Database Operation
         if (data.id == -1) {
             db.insertNewTask(data);

@@ -6,29 +6,43 @@ import java.time.format.*;
 
 public class TaskData {
     public int id;
-    public boolean done;
     public String title;
     public String desc;
     public LocalDateTime date;
-    public int user;
 
     private DateTimeFormatter outputDatetimeFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM, FormatStyle.SHORT);
     private DateTimeFormatter inputDatetimeFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT, FormatStyle.SHORT);
+
+    public boolean isPastDueDate() {
+        if (date == null) {
+            return false;
+        }
+        return LocalDateTime.now().compareTo(date) > 0 ? true : false;
+    }
 
     public String getDateLong() {
         return date == null ? null : date.format(outputDatetimeFormat);
     }
 
     public String getDateShort() {
-        return date == null ? null : date.format(inputDatetimeFormat);
+        return date == null ? null : date.format(inputDatetimeFormat).split(", ")[0];
+    }
+
+    public String getTimeShort() {
+        return date == null ? null : date.format(inputDatetimeFormat).split(", ")[1];
     }
 
     public Timestamp getDateAsTimestamp() {
         return date == null ? null : Timestamp.valueOf(date);
     }
 
-    public void setDate(String _date) {
-        date = (_date == null || _date.isBlank()) ? null : LocalDateTime.parse(_date, inputDatetimeFormat);
+    public boolean setDate(String _date) {
+        try {
+            date = (_date == null || _date.isBlank()) ? null : LocalDateTime.parse(_date, inputDatetimeFormat);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
     }
 
     public void setDate(Timestamp _date) {
