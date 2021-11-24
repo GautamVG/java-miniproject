@@ -3,26 +3,25 @@ package TwoDo.components;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.event.ActionListener;
-// import java.awt.event.ActionEvent;
 import java.awt.*;
 
 import TwoDo.db.TaskData;
 
 public class TaskEditor extends JPanel {
-    TaskData taskData = new TaskData();
+    private TaskData taskData = new TaskData();
 
-    JLabel titleLabel = new JLabel("Enter title");
-    JTextField title = new JTextField();
-    JLabel descLabel = new JLabel("Enter desc");
-    JTextField desc = new JTextField();
-    JLabel dateLabel = new JLabel("Enter due date");
-    JTextField date = new JTextField();
-    JLabel timeLabel = new JLabel("Enter due time");
-    JTextField time = new JTextField();
-    JPanel buttonPane = new JPanel();
-    JButton saveBtn = new JButton("Save");
-    JButton cancelBtn = new JButton("Cancel");
-    Border topSpacing = BorderFactory.createEmptyBorder(5, 0, 0, 0);
+    private JLabel titleLabel = new JLabel("Enter title");
+    private JTextField title = new JTextField();
+    private JLabel descLabel = new JLabel("Enter desc");
+    private JTextField desc = new JTextField();
+    private JLabel dateLabel = new JLabel("Enter due date");
+    private JTextField date = new JTextField();
+    private JLabel timeLabel = new JLabel("Enter due time");
+    private JTextField time = new JTextField();
+    private JPanel buttonPane = new JPanel();
+    private JButton saveBtn = new JButton("Save");
+    private JButton cancelBtn = new JButton("Cancel");
+    private Border topSpacing = BorderFactory.createEmptyBorder(5, 0, 0, 0);
 
     public TaskEditor() {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

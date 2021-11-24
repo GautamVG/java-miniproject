@@ -10,9 +10,9 @@ import TwoDo.db.TaskData;
 
 class App extends JFrame implements ActionListener {
 
-    JPanel contentPane = new JPanel();
-    Dashboard dashboard = new Dashboard();
-    TaskManager taskManager = new TaskManager();
+    private JPanel contentPane = new JPanel();
+    private Dashboard dashboard = new Dashboard();
+    private TaskManager taskManager = new TaskManager();
 
     public void runApp() {
         setTitle("TwoDo");
@@ -66,29 +66,24 @@ class App extends JFrame implements ActionListener {
         }
     }
 
-    public void refreshBtnClicked() {
-
-    }
-
-    public void saveBtnClicked(ActionEvent e) {
+    private void saveBtnClicked(ActionEvent e) {
         if (dashboard.validateEditor()) {
             TaskData data = dashboard.getEditorData();
             taskManager.update(data);
             dashboard.closeEditor();
         } else {
-            System.out.println("Invalid Data Entered");
             JOptionPane.showMessageDialog(this, "There is a problem with your form");
         }
     }
 
-    public void editBtnClicked(ActionEvent e) {
+    private void editBtnClicked(ActionEvent e) {
         JButton sourceBtn = (JButton) e.getSource();
         int id = (Integer) sourceBtn.getClientProperty("id");
         TaskData sourceTaskData = taskManager.getTaskDataWithID(id);
         dashboard.openEditor(sourceTaskData);
     }
 
-    public void delBtnClicked(ActionEvent e) {
+    private void delBtnClicked(ActionEvent e) {
         JButton sourceBtn = (JButton) e.getSource();
         int id = (Integer) sourceBtn.getClientProperty("id");
         taskManager.deleteTaskWithID(id);

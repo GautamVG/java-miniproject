@@ -4,29 +4,28 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 import java.awt.event.ActionListener;
-// import java.awt.event.ActionEvent;
 import java.awt.*;
 
 import TwoDo.db.TaskData;
 
 public class Task extends JPanel {
-    TaskData taskData;
+    private TaskData taskData;
 
-    Border defaultBorder = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
-    Border alertBorder = BorderFactory.createLineBorder(Color.red);
-    Border highlightBorder = BorderFactory.createLineBorder(Color.cyan);
-    JPanel dataPane = new JPanel();
-        JLabel title = new JLabel("Task #1");
-        JLabel desc = new JLabel("Task #1");
-        JLabel date = new JLabel("07/02/2002");
-    JPanel buttonPane = new JPanel();
-        JButton delBtn = new JButton("Delete");
-        JButton editBtn = new JButton("Edit");
-    Border spacing = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+    private Border defaultBorder = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
+    private Border alertBorder = BorderFactory.createLineBorder(Color.red);
+    private Border highlightBorder = BorderFactory.createLineBorder(Color.cyan);
+    private JPanel dataPane = new JPanel();
+        private JLabel title = new JLabel("Task #1");
+        private JLabel desc = new JLabel("Task #1");
+        private JLabel date = new JLabel("07/02/2002");
+    private JPanel buttonPane = new JPanel();
+        private JButton delBtn = new JButton("Delete");
+        private JButton editBtn = new JButton("Edit");
+    private Border spacing = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
     public Task(TaskData data) {
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(Integer.MAX_VALUE, 150));
+        setPreferredSize(new Dimension(Integer.MAX_VALUE, 180));
 
             dataPane.setLayout(new BorderLayout());
             dataPane.setBorder(spacing);

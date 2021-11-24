@@ -4,20 +4,18 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 import java.awt.event.ActionListener;
-// import java.awt.event.ActionEvent;
 import java.awt.*;
 
 import TwoDo.db.TaskData;
 
 public class Dashboard extends JPanel {
-    JLabel title = new JLabel("Stuff To Do");
-    JPanel buttonPane = new JPanel();
-    JButton addBtn = new JButton("Add");
-    JButton refreshBtn = new JButton("Refresh");
-    Border padding = BorderFactory.createEmptyBorder(10, 20, 10, 20);
-    Border margin = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
-    Border bottomSpacing = BorderFactory.createEmptyBorder(0, 0, 10, 0);
-    Border topSpacing = BorderFactory.createEmptyBorder(20, 0, 0, 0);
+    private JLabel title = new JLabel("Welcome TwoDo");
+    private JPanel buttonPane = new JPanel();
+    private JButton addBtn = new JButton("Add");
+    private JButton refreshBtn = new JButton("Refresh");
+    private Border padding = BorderFactory.createEmptyBorder(10, 20, 10, 20);
+    private Border margin = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
+    private Border bottomSpacing = BorderFactory.createEmptyBorder(0, 0, 10, 0);
 
     TaskEditor taskEditor = new TaskEditor();
 

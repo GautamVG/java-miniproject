@@ -12,15 +12,15 @@ import TwoDo.db.*;
 public class TaskManager extends JScrollPane {
     
     // Event Handler
-    ActionListener parentActionListener;
+    private ActionListener parentActionListener;
 
     // Database Instance
-    DB db = new DB();
+    private DB db = new DB();
 
     // UI objects
-    JPanel contentPane = new JPanel();
-    ArrayList<Task> tasks = new ArrayList<Task>();
-    Dimension minimumSize = new Dimension(600, 600);
+    private JPanel contentPane = new JPanel();
+    private ArrayList<Task> tasks = new ArrayList<Task>();
+    private Dimension minimumSize = new Dimension(600, 600);
 
     public TaskManager() {
         setViewportView(contentPane);
@@ -47,7 +47,7 @@ public class TaskManager extends JScrollPane {
         syncUIWith(db.getAllTasks());
     }
 
-    void syncUIWith(ArrayList<TaskData> taskData) {
+    private void syncUIWith(ArrayList<TaskData> taskData) {
         int i = 0;
         for (; i < Math.min(tasks.size(), taskData.size()); i++) {
             // Sync existing tasks

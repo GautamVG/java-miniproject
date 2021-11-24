@@ -1,6 +1,6 @@
 package TwoDo.db;
 
-public class DatabaseCredentialsSample {
+class DatabaseCredentialsSample {
     // Rename this to DatabaseCredentials
     // And enter your user credentials
     public String url = "";
